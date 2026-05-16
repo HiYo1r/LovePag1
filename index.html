@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <!-- LOGIN -->
+  <div id="loginPage" class="login-page">
+    <div class="login-card">
+      <h1>Ingresa contraseña 🔒</h1>
+      <input type="password" id="password" placeholder="Contraseña">
+      <button onclick="checkPassword()">Entrar</button>
+      <p id="error"></p>
+    </div>
+  </div>
+
+  <!-- APP -->
+  <main id="app" class="app hidden">
+
+    <!-- CONTENIDO -->
+    <div class="content-box">
+
+      <section id="home" class="page active">
+
+        <h1>💖 Bienvenida monita 💖</h1>
+
+        <p>
+          Esta página tiene varias cosas y en un futuro
+          quiero actualizarla con más cosas
+        </p>
+
+        <p>
+          Tienes la playlist 🎵,
+          la galería 📸 que es donde están la mayoría
+          de fotitos de nosotros (y faltan muchas más),
+          una cartita 💌
+          y también hay algo secreto 
+        </p>
+
+        <a
+          href="https://drive.google.com/drive/folders/1vctrczTScptQHa_pXPCKcMm8mFaPOq6-?usp=sharing"
+          target="_blank"
+          class="secret-btn">
+          🔒 Abrir secreto
+        </a>
+
+      </section>
+
+      <section id="playlist" class="page">
+
+        <div class="phone-player">
+
+          <!-- PORTADA -->
+          <img id="songCover"
+            src="gallery/p14.jpg"
+            class="song-cover">
+
+          <!-- INFO -->
+          <div class="song-box">
+            <div class="volume-control">
+              <span>🔉</span>
+              <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.8">
+              <span>🔊</span>
+            </div>
+
+            <div class="song-info">
+              <h2 id="songTitle">Japanese Denim</h2>
+              <p id="songArtist">Daniel Caesar</p>
+            </div>
+
+            <!-- AUDIO -->
+            <audio id="audioPlayer">
+              <source src="music/japanese-denim.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- CONTROLES -->
+            <div class="controls">
+              <button onclick="prevSong()">⏮</button>
+
+              <button onclick="togglePlay()" id="playBtn">
+                ▶
+              </button>
+
+              <button onclick="nextSong()">⏭</button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="galeria" class="page">
+        <h1>Galería 📸</h1>
+
+        <div class="year-box" onclick="toggleGallery('year2025')">
+          <h2>2025</h2>
+          <p>Click para ver recuerdos</p>
+        </div>
+
+        <div id="year2025" class="gallery hidden-gallery">
+          <img src="gallery/x1.png" onclick="openModal(this)">
+          <img src="gallery/x2.png" onclick="openModal(this)">
+          <img src="gallery/x3.png" onclick="openModal(this)">
+          <img src="gallery/x4.png" onclick="openModal(this)">
+          <img src="gallery/x5.png" onclick="openModal(this)">
+          <img src="gallery/x6.png" onclick="openModal(this)">
+        </div>
+
+        <div class="year-box" onclick="toggleGallery('year2026')">
+          <h2>2026</h2>
+          <p>Click para ver las fotos</p>
+        </div>
+
+        <div id="year2026" class="gallery hidden-gallery">
+          <img src="gallery/p1.jpg" onclick="openModal(this)">
+          <img src="gallery/p2.jpg" onclick="openModal(this)">
+          <img src="gallery/p3.jpg" onclick="openModal(this)">
+          <img src="gallery/p4.jpg" onclick="openModal(this)">
+          <img src="gallery/p5.jpg" onclick="openModal(this)">
+          <img src="gallery/p6.jpg" onclick="openModal(this)">
+          <img src="gallery/p7.jpg" onclick="openModal(this)">
+          <img src="gallery/p8.jpg" onclick="openModal(this)">
+        </div>
+
+        <div class="year-box soon">
+          <h2>Próximamente...</h2>
+          <p>Más momentos juntos 💕</p>
+        </div>
+      </section>
+
+      <section id="carta" class="page">
+        <h1>Una cartita</h1>
+
+        <div class="letter-reveal">
+          <p class="drag-text">Arrastra hacia abajo para verla</p>
+
+          <div class="drag-circle" id="dragCircle">
+            ↓
+          </div>
+
+          <div class="letter-hidden" id="letterHidden">
+            <img src="gallery/carta.jpg" class="letter-img">
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- MENÚ DERECHA -->
+    <nav class="side-menu">
+      <button onclick="showPage('home')">🏠 Home</button>
+      <button onclick="showPage('playlist')">🎵 Playlist</button>
+      <button onclick="showPage('galeria')">📸 Gallery</button>
+      <button onclick="showPage('carta')">💌 Carta</button>
+    </nav>
+
+  </main>
+
+  <!-- MODAL IMAGEN -->
+  <div id="modal" class="modal hidden" onclick="closeModal()">
+    <img id="modalImg">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
