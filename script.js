@@ -104,15 +104,23 @@ let draggingLetter = false;
 let startLetterY = 0;
 let isOpen = false;
 
+/* PC */
 dragCircle.addEventListener("mousedown", (e) => {
   draggingLetter = true;
   startLetterY = e.clientY;
 });
 
-document.addEventListener("mousemove", (e) => {
+/* CELULAR */
+dragCircle.addEventListener("touchstart", (e) => {
+  draggingLetter = true;
+  startLetterY = e.touches[0].clientY;
+});
+
+/* MOVIMIENTO */
+function handleMove(currentY) {
   if (!draggingLetter) return;
 
-  const distance = e.clientY - startLetterY;
+  const distance = currentY - startLetterY;
 
   /* ABRIR */
   if (!isOpen && distance > 0) {
@@ -138,9 +146,20 @@ document.addEventListener("mousemove", (e) => {
       dragText.classList.remove("hide");
     }
   }
+}
+
+/* PC */
+document.addEventListener("mousemove", (e) => {
+  handleMove(e.clientY);
 });
 
-document.addEventListener("mouseup", () => {
+/* CELULAR */
+document.addEventListener("touchmove", (e) => {
+  handleMove(e.touches[0].clientY);
+});
+
+/* FINAL */
+function finishDrag() {
   if (!draggingLetter) return;
 
   const currentHeight =
@@ -157,10 +176,15 @@ document.addEventListener("mouseup", () => {
   }
 
   draggingLetter = false;
-});
+}
 
-/* CLICK EN LA CARTA PARA CERRAR */
+/* PC */
+document.addEventListener("mouseup", finishDrag);
 
+/* CELULAR */
+document.addEventListener("touchend", finishDrag);
+
+/* CLICK PARA CERRAR */
 letterHidden.addEventListener("click", () => {
   if (!isOpen) return;
 
@@ -171,7 +195,6 @@ letterHidden.addEventListener("click", () => {
 
   isOpen = false;
 });
-
 
 
 
