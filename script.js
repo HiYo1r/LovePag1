@@ -203,7 +203,7 @@ const songs = [
     title: "Japanese Denim",
     artist: "Daniel Caesar",
     cover: "gallery/p2.jpg",
-    audio: "music/japanese-denim.mp3"
+    audio: "music/Japanese-Denim.mp3"
   },
   {
     title: "Best Part",
@@ -216,12 +216,6 @@ const songs = [
     artist: "Daniel Caesar",
     cover: "gallery/p24.jpg",
     audio: "music/violet.mp3"
-  },
-  {
-    title: "Superpowers",
-    artist: "Daniel Caesar",
-    cover: "gallery/p18.jpg",
-    audio: "music/superpowers.mp3"
   },
   {
     title: "Always",
