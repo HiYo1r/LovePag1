@@ -539,4 +539,138 @@ button {
   background: #e63973;
 }
 
+/* ========================= */
+/* RESPONSIVE CELULAR */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .app {
+    flex-direction: column;
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .content-box {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+    border-radius: 25px;
+  }
+
+  /* MENU */
+
+  .side-menu {
+    width: 100%;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding: 15px;
+    border-radius: 25px;
+
+    z-index: 999;
+  }
+
+  .side-menu button {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 15px;
+  }
+
+  /* TITULOS */
+
+  .page h1 {
+    font-size: 30px;
+  }
+
+  .page p {
+    font-size: 16px;
+  }
+
+  /* PLAYER */
+
+  .song-cover {
+    height: 300px;
+    border-radius: 20px;
+  }
+
+  .song-info h2 {
+    font-size: 28px;
+  }
+
+  .song-info p {
+    font-size: 18px;
+  }
+
+  .controls {
+    gap: 15px;
+  }
+
+  .controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  #playBtn {
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+  }
+
+  /* GALERIA */
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery img {
+    height: 180px;
+  }
+
+  .year-box {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .year-box h2 {
+    font-size: 30px;
+  }
+
+  /* CARTA */
+
+  .letter-img {
+    border-radius: 18px;
+  }
+
+  /* MIMI */
+
+  .pet-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .pet-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .pet-buttons button {
+    font-size: 15px;
+    padding: 15px;
+  }
+
+}
+
 
